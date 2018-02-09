@@ -108,7 +108,7 @@ const routes: Routes = [
     AngularFirestoreModule,
     NgxPaginationModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDScukczzFdVfBUxlGEbxp7k3jhadyvzXs'
+      apiKey: ''
     }),
     AgmSnazzyInfoWindowModule,
     FroalaEditorModule.forRoot(),
