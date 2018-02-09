@@ -1,0 +1,44 @@
+<section id="abouts" class="abouts" style="margin-top:3rem"  *ngIf="Post | async as p ">
+    <div class="container">
+        <div class="row">
+            
+                <div class="col-md-6">
+                    <div class="single_abouts_text text-center wow slideInLeft" data-wow-duration="1s">
+                        <img [src]="p.url" alt="Placeholder image">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="single_abouts_text wow slideInRight" data-wow-duration="1s">
+                        <h4>{{p.title}}</h4>
+                        <h3>{{p.author}}</h3>
+
+                        <div class="content" [froalaView]="p.body"></div>
+                       
+                    </div>
+                </div>
+          
+        </div>
+    </div>
+</section>
+<!-- 
+<div class="columns is-desktop" *ngIf="Post | async as p ">
+  <div class="column is-8 is-offset-2" style="margin-top:2rem">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-16by9">
+          <img [src]="p.url" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <p class="title is-4">{{p.author}}</p>
+          </div>
+        </div>
+
+        <div class="content" [froalaView]="p.body"></div>
+      </div>
+    </div>
+  </div>
+</div> -->

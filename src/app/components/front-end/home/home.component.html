@@ -1,0 +1,77 @@
+<!-- <section id="slider" class="slider" style="background: url(assets/images/bannerbg.jpg) center no-repeat; width:100%">
+    <div class="slider_overlay">
+        <div class="container">
+            <div class="row">
+                <div class="main_slider text-center">
+                    <div class="col-md-12">
+                        <div class="main_slider_content wow zoomIn animated" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-name: zoomIn;">
+                            <h1>xclusive backers</h1>
+                            <p>Bring you dream cake to life for you and your loved once enjoy</p>
+                            <a routerLink="/contact-us" class="button is-info is-outlined">Place Order</a>
+                        </div>
+                    </div>	
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<div class="hero is-info is-medium" style="margin:0; padding:0;">
+  <!-- <img src="assets/cake.jpg" class="image" alt="hero"> -->
+  <div class="slider_overlay">
+      <div class="container">
+          <div class="row">
+              <div class="main_slider text-center">
+                  <div class="col-md-12">
+                      <div class="main_slider_content wow zoomIn animated" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-name: zoomIn;">
+                          <h2>xclusive backers</h2>
+                          <h5>Bring you dream cake to life for you and your loved once enjoy</h5>
+                      </div>
+                  </div>	
+              </div>
+
+          </div>
+      </div>
+  </div>
+  <!-- <div class="content">
+    <div class="container">
+      <h1 class="title" style="color:#fff">
+        Large title
+      </h1>
+      <h2 class="subtitle" style="color:#fff">
+        Large subtitle
+      </h2>
+    </div>
+  </div> -->
+</div>
+
+<section id="abouts" class="abouts" style="margin-top:1rem">
+    <div class="container">
+        <div class="row">
+            
+                <div class="col-md-6">
+                    <div class="single_abouts_text text-center wow slideInLeft" data-wow-duration="1s">
+                        <img src="assets/images/ab.png" alt="" />
+                    </div>
+                </div>
+
+                <div class="col-md-5"  *ngIf="about |async as a ">
+                    <div class="single_abouts_text wow slideInRight" data-wow-duration="1s">
+                        <h4>About us</h4>
+                        <h3>WE ARE TASTY</h3>
+
+                        <div [froalaView]="a.content"></div>
+                       
+                    </div>
+                </div>
+          
+        </div>
+    </div>
+</section>
+
+<div style="padding-right:10px; padding-left:10px; ">
+  <div class="">
+    <posts></posts>
+  </div>
+</div>

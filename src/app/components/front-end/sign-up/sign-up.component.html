@@ -1,0 +1,34 @@
+<section class="hero is-fullheight" style="background:#fff; margin-top:-60px;">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <div class="column is-4 is-offset-4">
+          <h3 class="title has-text-grey">Sing Up</h3>
+          <p class="subtitle has-text-grey">Please proceed.</p>
+          <div class="box">
+            <form [formGroup]="userForm">
+              <div class="field">
+                <div class="control">
+                  <input #email formControlName="email" name="email" class="input is-large" type="email" placeholder="Your Email" autofocus="">
+                </div>
+              </div>
+
+              <div *ngIf="formErrors.email" class="notification is-danger">
+                {{ formErrors.email }}
+              </div>
+
+              <div class="field">
+                <div class="control">
+                  <input #password formControlName="password" name="password" class="input is-large" type="password" placeholder="Your Password">
+                </div>
+              </div>
+
+              <div *ngIf="formErrors.password" class="notification is-danger">
+                {{ formErrors.password }}
+              </div>
+              <a class="button is-block is-info" (click)="send()" style="color: #fff;">Sign Up</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

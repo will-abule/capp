@@ -1,0 +1,87 @@
+.is-info {
+    background-image: url('../../../../assets/cake.jpg');
+    width: 100%;
+    background-size: cover;
+}
+
+.hero-body {
+    width: 100%;
+    
+}
+
+.image {
+    left: 0;
+    right: 0;
+    display: block;
+    width: 1000vw;
+    height: auto;
+  }
+  
+  .content {
+    left: 0;
+    right: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 200px;
+    position: absolute;
+  }
+
+.card {
+    padding: 20px;
+    border-radius: 7px;
+    box-shadow: 0px 1px 20px 0px #b5b5b5;
+    -moz-box-shadow: 0px 1px 20px 0px #b5b5b5;
+    -webkit-box-shadow: 0px 1px 20px 0px #b5b5b5;
+}
+
+
+h1 { font-size: 6em !important; }
+h2 { font-size: 4.0em !important; }
+h3 { font-size: 2.17em !important; }
+h4 { font-size: 3.12em !important; }
+h5 { font-size: 1.83em !important; }
+h6 { font-size: .75em !important; }
+
+.slider {
+    /* background: url(../../../assets/images/bannerbg.jpg) center center no-repeat; */
+    background-size: cover;
+}
+
+section {
+    margin: 0;
+    display: block;
+}
+
+.slider_overlay {
+    background: rgba(0, 0, 0, .6);
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.main_slider_content {
+    padding: 250px 0px 200px 0px;
+    width: 70%;
+    margin: 0 auto;
+    color: #fff;
+}
+
+/* .zoomIn {
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+} */
+
+.main_slider .main_slider_content h1 {
+    font-size: 6rem;
+    font-family: 'Pacifico', cursive;
+    color: #fff;
+    line-height: 6rem;
+    margin: 0px 0px 60px 0px;
+}

@@ -1,0 +1,54 @@
+<nav class="navbar is-fixed-top nav">
+  <div class="navbar-brand">
+    <a class="navbar-item" style="font-size:20px; margin-left:10px;" href="/">
+      <b>xclusive bakers</b> 
+    </a>
+    <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div id="navbarExampleTransparentExample" class="navbar-menu" style="padding:0 4rem;">
+    <div class="navbar-start">
+      <a class="navbar-item" routerLink="https://xclusivebakers.com/" routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
+        Home
+      </a>
+      <a class="navbar-item" routerLink="https://xclusivebakers.com/about" routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
+        About
+      </a>
+      <a class="navbar-item" routerLink="https://xclusivebakers.com/contact-us" routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
+        Contact Us
+      </a>
+
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a *ngIf="user" class="navbar-link">
+            {{ user.displayName }}
+          </a>
+          <div *ngIf="user" class="navbar-dropdown is-boxed">
+            <a class="navbar-item" routerLink="https://xclusivebakers.com/admin/dashboard" routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
+              Dashboard
+            </a>
+            <a class="navbar-item" routerLink="https://xclusivebakers.com/admin/posts" routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
+              Post
+            </a>
+            <a class="navbar-item" routerLink="https://xclusivebakers.com/admin/add-post" routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
+              Add Post
+            </a>
+            <a class="navbar-item" routerLink="https://xclusivebakers.com/admin/about" routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
+              About Settings
+            </a>
+
+            <a (click)="signOut()" class="navbar-item button is-danger is-outlined">Sign Out</a>
+          </div>
+        </div>
+        <a *ngIf="!user"routerLink="/sign-in" class="button is-success is-outlined">Sign In</a>
+      </div>
+    </div>
+  </div>
+</nav>

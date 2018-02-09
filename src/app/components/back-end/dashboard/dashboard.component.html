@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="columns">
+    <div class="column is-8 is-offset-2">
+      <div class="field">
+        <label class="label">Search....</label>
+        <div class="control">
+          <input #query (keyup)="filter(query.value)" class="input" type="text" placeholder="search....">
+        </div>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>Email</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+              <th></th>
+              <th>Name</th>
+              <th>Subject</th>
+              <th>Email</th>
+              <th></th>
+          </tr>
+        </tfoot>
+        <tbody *ngFor="let c of filteredContact; let i=index">
+          <tr>
+            <th>{{i}}</th>
+            <td>{{c.author}}</td>
+            <td><a [routerLink]="['/admin/edit-post',c.id]">{{c.name}}</a></td>
+            <td><a [routerLink]="['/admin/edit-post',c.id]">{{c.subject}}</a></td>
+            <td><a [routerLink]="['/admin/edit-post',c.id]">{{c.email}}</a></td>
+            <td><a [routerLink]="['/admin/contact-details',c.id]">view</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="hero-body">
+  <div class="container">
+    <h1 class="title">
+      My Products
+    </h1>
+  </div>
+</div>
+<div style="padding:20px">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let pt of Posts | async | paginate: { itemsPerPage: 12, currentPage: p }" style="margin-bottom:30px;">
+      <div class="card c" style="margin:20px">
+        <div class="card-image">
+          <figure class="image is-16by9">
+            <a [routerLink]="['/post', pt.id]"><img [src]="pt.url" alt="Placeholder image"></a>
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4"><a [routerLink]="['/post', pt.id]">{{pt.title}}</a></p>
+              <p>By <strong>{{pt.author}}</strong></p>
+              <hr>
+            </div>
+          </div>
+
+          <div class="content" [froalaView]="pt.summary"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 offset-md-5">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>

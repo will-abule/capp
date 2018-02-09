@@ -19,9 +19,25 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/froala-editor/css/froala_editor.pkgd.min.css",
+        "../node_modules/froala-editor/css/froala_style.min.css",
+        "../node_modules/font-awesome/css/font-awesome.css",
+        "../node_modules/bulma/css/bulma.css",
+        "assets/css/animate/animate.css",
+        "../node_modules/snazzy-info-window/dist/snazzy-info-window.css"
+      
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/froala-editor/js/froala_editor.pkgd.min.js",
+        "assets/js/vendor/jquery-1.11.2.min.js",
+        "assets/js/jquery-easing/jquery.easing.1.3.js",
+        "assets/js/wow/wow.min.js",
+        "assets/js/plugins.js",
+        "assets/js/main.js",
+        "assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
