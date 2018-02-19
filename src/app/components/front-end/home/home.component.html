@@ -1,32 +1,13 @@
-<!-- <section id="slider" class="slider" style="background: url(assets/images/bannerbg.jpg) center no-repeat; width:100%">
-    <div class="slider_overlay">
-        <div class="container">
-            <div class="row">
-                <div class="main_slider text-center">
-                    <div class="col-md-12">
-                        <div class="main_slider_content wow zoomIn animated" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-name: zoomIn;">
-                            <h1>xclusive backers</h1>
-                            <p>Bring you dream cake to life for you and your loved once enjoy</p>
-                            <a routerLink="/contact-us" class="button is-info is-outlined">Place Order</a>
-                        </div>
-                    </div>	
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section> -->
-
 <div class="hero is-info is-medium" style="margin:0; padding:0;">
-  <!-- <img src="assets/cake.jpg" class="image" alt="hero"> -->
   <div class="slider_overlay">
       <div class="container">
           <div class="row">
               <div class="main_slider text-center">
                   <div class="col-md-12">
                       <div class="main_slider_content wow zoomIn animated" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-name: zoomIn;">
-                          <h2>xclusive backers</h2>
-                          <h5>Bring you dream cake to life for you and your loved once enjoy</h5>
+                        <h2>Xclusive Bakers</h2>
+                        <h5>Bring your dream cake to life for you and your loved ones... Enjoy!</h5>
+                        <h5>Call: +2348034430671 </h5>
                       </div>
                   </div>	
               </div>
@@ -34,16 +15,6 @@
           </div>
       </div>
   </div>
-  <!-- <div class="content">
-    <div class="container">
-      <h1 class="title" style="color:#fff">
-        Large title
-      </h1>
-      <h2 class="subtitle" style="color:#fff">
-        Large subtitle
-      </h2>
-    </div>
-  </div> -->
 </div>
 
 <section id="abouts" class="abouts" style="margin-top:1rem">
@@ -59,7 +30,6 @@
                 <div class="col-md-5"  *ngIf="about |async as a ">
                     <div class="single_abouts_text wow slideInRight" data-wow-duration="1s">
                         <h4>About us</h4>
-                        <h3>WE ARE TASTY</h3>
 
                         <div [froalaView]="a.content"></div>
                        
@@ -72,6 +42,46 @@
 
 <div style="padding-right:10px; padding-left:10px; ">
   <div class="">
-    <posts></posts>
+    <div class="hero-body">
+        <div class="container">
+          <h3 class="title">
+            Our Products
+          </h3>
+        </div>
+      </div>
+      
+      
+      <section class="p-0" id="portfolio">
+        <div class="container-fluid p-0">
+          <div class="row no-gutters popup-gallery">
+            <div class="col-lg-4 col-sm-6" *ngFor="let pt of Posts | async | paginate: { itemsPerPage: 6, currentPage: p }">
+              <a class="portfolio-box" [routerLink]="['/post', pt.id]">
+                <img class="img-fluid" [src]="pt.url" alt="">
+                <div class="portfolio-box-caption">
+                  <div class="portfolio-box-caption-content">
+                    <div class="project-category text-faded">
+                      {{pt.title}}
+                    </div>
+                    <div class="project-name">
+                      by
+                      <br>
+                      Xclusive Backers
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <br><br>
+      <div class="row">
+        <div class="col-md-3 offset-md-5">
+          <a class="button is-success is-outlined" routerLink="/posts">View More</a>
+        </div>
+      </div>
   </div>
 </div>
+<br><br>
+
+<loading-spinner *ngIf="showSpinner"></loading-spinner>

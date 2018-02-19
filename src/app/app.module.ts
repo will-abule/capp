@@ -23,6 +23,7 @@ import * as $ from 'jquery';
 window["$"] = $;
 window["jQuery"] = $;
 
+
 // firebase
 
 import { AngularFireModule } from 'angularfire2';
@@ -54,6 +55,7 @@ import { DashboardComponent } from './components/back-end/dashboard/dashboard.co
 import { SignInComponent } from './components/front-end/sign-in/sign-in.component';
 import { SignUpComponent } from './components/front-end/sign-up/sign-up.component';
 import { ContactDetailsComponent } from './components/back-end/contact-details/contact-details.component';
+import { LoadingSpinnerComponent } from './components/ui/loading-spinner/loading-spinner.component';
 
 
 // Routes setup
@@ -97,7 +99,8 @@ const routes: Routes = [
     SignInComponent,
     SignUpComponent,
     ContactDetailsComponent,
-    KeysPipe
+    KeysPipe,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -108,7 +111,7 @@ const routes: Routes = [
     AngularFirestoreModule,
     NgxPaginationModule,
     AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: 'AIzaSyDScukczzFdVfBUxlGEbxp7k3jhadyvzXs'
     }),
     AgmSnazzyInfoWindowModule,
     FroalaEditorModule.forRoot(),

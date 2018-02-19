@@ -10,12 +10,17 @@ import { PostService } from '../../../services/post.service';
 })
 export class PostComponent implements OnInit {
 
-  Posts  :   Observable<$Post[]>;
-  p      :   number = 1;
-  constructor(private post: PostService) { }
+  Posts         :   Observable<$Post[]>;
+  p             :   number = 1;
+  showSpinner   =   true;
+  constructor(private post: PostService) {
+    this.Posts = this.post.getPosts()
+   }
 
   ngOnInit() {
-    this.Posts = this.post.getPosts()
+    this.Posts.subscribe((x) => {
+      this.showSpinner = false;
+    })
   }
 
 }

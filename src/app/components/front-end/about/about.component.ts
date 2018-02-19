@@ -10,12 +10,17 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AboutComponent implements OnInit {
   
-  about  : Observable<About>;
-
-  constructor(private abt : AboutService) { }
+  about         :    Observable<About>;
+  showSpinner   =    true;
+  
+  constructor(private abt : AboutService) { 
+    this.about = this.abt.getAbout()
+  }
 
   ngOnInit() {
-    this.about = this.abt.getAbout()
+    this.about.subscribe((x) => {
+      this.showSpinner = false;
+    })
   }
 
 }

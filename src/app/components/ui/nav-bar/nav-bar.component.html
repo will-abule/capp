@@ -1,7 +1,7 @@
 <nav class="navbar is-fixed-top nav">
   <div class="navbar-brand">
     <a class="navbar-item" style="font-size:20px; margin-left:10px;" href="/">
-      <b>xclusive bakers</b> 
+      <b>Xclusive bakers</b> 
     </a>
     <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
       <span></span>
@@ -12,14 +12,20 @@
 
   <div id="navbarExampleTransparentExample" class="navbar-menu" style="padding:0 4rem;">
     <div class="navbar-start">
-      <a class="navbar-item" routerLink="/" click="f()" routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
+      <a class="navbar-item" href="/" (click)="f()" routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
         Home
       </a>
-      <a class="navbar-item" routerLink="/about" click="f()" routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
+      <!-- <a class="navbar-item" href="/category" (click)="f()" routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
+        Valentine Cakes
+      </a> -->
+      <a class="navbar-item" href="/posts" (click)="f()" routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
+        Products
+      </a>
+      <a class="navbar-item" href="/about" (click)="f()" routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
         About
       </a>
-      <a class="navbar-item" routerLink="/contact-us" click="f()"  routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
-        Contact Us
+      <a class="navbar-item" href="/contact-us" (click)="f()"  routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
+        Special Order
       </a>
 
     </div>
@@ -31,23 +37,23 @@
             {{ user.displayName }}
           </a>
           <div *ngIf="user" class="navbar-dropdown is-boxed">
-            <a class="navbar-item" routerLink="/admin/dashboard" click="f()"  routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
+            <a class="navbar-item" href="/admin/dashboard" (click)="f()"  routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
               Dashboard
             </a>
-            <a class="navbar-item" routerLink="/admin/posts" click="f()"  routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
+            <a class="navbar-item" href="/admin/posts" (click)="f()"  routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
               Post
             </a>
-            <a class="navbar-item" routerLink="/admin/add-post" click="f()"  routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
+            <a class="navbar-item" href="/admin/add-post" (click)="f()"  routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
               Add Post
             </a>
-            <a class="navbar-item" routerLink="/admin/about" click="f()" routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
+            <a class="navbar-item" href="/admin/about" (click)="f()" routerLinkActive="active current" [routerLinkActiveOptions]="{ exact:true }">
               About Settings
             </a>
 
             <a (click)="signOut()" class="navbar-item button is-danger is-outlined">Sign Out</a>
           </div>
         </div>
-        <a *ngIf="!user"routerLink="/sign-in" class="button is-success is-outlined">Sign In</a>
+        <!-- <a *ngIf="!user"href="/sign-in" class="button is-success is-outlined">Sign In</a> -->
       </div>
     </div>
   </div>

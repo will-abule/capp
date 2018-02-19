@@ -10,22 +10,13 @@
                 <div class="col-md-6"  *ngIf="about |async as a ">
                     <div class="single_abouts_text wow slideInRight" data-wow-duration="1s">
                         <h4>About us</h4>
-                        <h3>WE ARE TASTY</h3>
 
                         <div [froalaView]="a.content"></div>
-                       
-                        <a href="" class="btn btn-primary">click here</a>
+                    
                     </div>
                 </div>
             </div>
     </div>
 </section>
 
-<!-- <div class="container" *ngIf="about |async as a ">
-  <div class="columns" style="Padding-top:5rem;">
-    <div class="column is-8 is-offset-2">
-      <h1 class="title">About</h1>
-      <hr>
-      <div [froalaView]="a.content"></div>
-    </div>
-  </div> -->
+<loading-spinner *ngIf="showSpinner"></loading-spinner>

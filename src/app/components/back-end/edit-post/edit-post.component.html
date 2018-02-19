@@ -8,26 +8,6 @@
             <input [(ngModel)]="p.title || post.title " #title='ngModel' name="title" id="title" class="input" type="text">
           </div>
         </div>
-        <div class="field">
-          <label class="label">Author</label>
-          <div class="control">
-            <input [(ngModel)]="p.author || post.author" #author='ngModel' name="author" id="author" class="input" type="text">
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label">Summary</label>
-          <div class="control">
-            <textarea [froalaEditor] [(froalaModel)]="p.summary || post.summary" [(ngModel)]="p.summary || post.summary" #summary='ngModel' name="summary" id="summary" class="input" type="text"></textarea>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label">Discription</label>
-          <div class="control">
-            <textarea [froalaEditor] [(froalaModel)]="p.body || post.body" [(ngModel)]="p.body || post.body" #body='ngModel' name="body" id="body" class="input" type="text"></textarea>
-          </div>
-        </div>
 
         <div class="field is-grouped">
           <div class="control">

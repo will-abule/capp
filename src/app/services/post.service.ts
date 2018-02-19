@@ -61,8 +61,6 @@ export class PostService {
         if (uploadTask.snapshot.downloadURL) {
             Post.title    =   p.title
             Post.body     =   p.body
-            Post.summary  =   p.summary
-            Post.author   =   p.author
             Post.url      =   uploadTask.snapshot.downloadURL
             Post.name     =   Post.file.name
             this.saveFileData(Post)
@@ -86,9 +84,6 @@ export class PostService {
     const data: Post = {
       name      :   Post.name,
       title     :   Post.title,
-      body      :   Post.body,
-      author    :   Post.author,
-      summary   :   Post.summary,
       url       :   Post.url,
     };
 
@@ -107,9 +102,6 @@ export class PostService {
         const data: Post = {
           name      :   Post.name,
           title     :   Post.title,
-          body      :   Post.body,
-          author    :   Post.author,
-          summary   :   Post.summary,
           url       :   Post.url,
         };
         
@@ -122,7 +114,7 @@ export class PostService {
       // Writes the file details to the realtime db
       private deleteFileData(id) {
         alert('deleted !')
-        this.router.navigate(['/admin/post'])
+        this.router.navigate(['/admin/posts'])
         return this.afs.delete(`${this.basePath}/${id}`)
       }
 

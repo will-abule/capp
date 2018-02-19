@@ -5,9 +5,7 @@ export class Upload {
     name        :   string;
     title       :   string;
     body        :   string;
-    author      :   string
     url         :   string;
-    summary     :   string;
     progress    :   number;
   
     constructor(file:File) {
@@ -19,10 +17,7 @@ export class Upload {
     
         name    :   string;
         title   :   string;
-        body    :   string;
-        author  :   string;
         url     :   string;
-        summary :   string;
     }
 
     export interface $Post {
@@ -30,9 +25,6 @@ export class Upload {
         id      :   string;
         name    :   string;
         title   :   string;
-        body    :   string;
-        author  :   string;
         url     :   string;
-        summary :   string;
     }
 

@@ -1,42 +1,45 @@
 <div class="hero-body">
   <div class="container">
     <h1 class="title">
-      My Products
+      Our Products
     </h1>
   </div>
 </div>
-<div style="padding:20px">
-  <div class="row">
-    <div class="col-md-4" *ngFor="let pt of Posts | async | paginate: { itemsPerPage: 12, currentPage: p }" style="margin-bottom:30px;">
-      <div class="card c" style="margin:20px">
-        <div class="card-image">
-          <figure class="image is-16by9">
-            <a [routerLink]="['/post', pt.id]"><img [src]="pt.url" alt="Placeholder image"></a>
-          </figure>
-        </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4"><a [routerLink]="['/post', pt.id]">{{pt.title}}</a></p>
-              <p>By <strong>{{pt.author}}</strong></p>
-              <hr>
+
+
+<section class="p-0" id="portfolio">
+  <div class="container-fluid p-0">
+    <div class="row no-gutters popup-gallery">
+      <div class="col-lg-4 col-sm-6" *ngFor="let pt of Posts | async | paginate: { itemsPerPage: 9, currentPage: p }">
+        <a class="portfolio-box" [routerLink]="['/post', pt.id]">
+          <img class="img-fluid" [src]="pt.url" alt="">
+          <div class="portfolio-box-caption">
+            <div class="portfolio-box-caption-content">
+              <div class="project-category text-faded">
+                {{pt.title}}
+              </div>
+              <div class="project-name">
+                by
+                <br>
+                Xclusive Bakers
+              </div>
             </div>
           </div>
-
-          <div class="content" [froalaView]="pt.summary"></div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 
 <div class="text-center">
   <div class="container">
     <div class="row">
-      <div class="col-md-3 offset-md-5">
+      <div class="col-md-6 offset-md-3">
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
     </div>
   </div>
 </div>
+
+<loading-spinner *ngIf="showSpinner"></loading-spinner>

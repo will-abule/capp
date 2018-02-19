@@ -25,7 +25,8 @@
         "../node_modules/font-awesome/css/font-awesome.css",
         "../node_modules/bulma/css/bulma.css",
         "assets/css/animate/animate.css",
-        "../node_modules/snazzy-info-window/dist/snazzy-info-window.css"
+        "../node_modules/snazzy-info-window/dist/snazzy-info-window.css",
+        "../node_modules/owl.carousel2/dist/assets/owl.carousel.min.css"
       
       ],
       "scripts": [
@@ -36,7 +37,9 @@
         "assets/js/wow/wow.min.js",
         "assets/js/plugins.js",
         "assets/js/main.js",
-        "assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"
+        "assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js",
+        "../node_modules/owl.carousel2/dist/owl.carousel.min.js"
+
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
