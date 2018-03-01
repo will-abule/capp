@@ -1,2 +1,14 @@
 <nav-bar></nav-bar>
+<div class="column is-8 is-offset-2" style="padding:0px;">
+  <div *ngIf="notify.msg | async as msg" class="notification"
+    [ngClass]="{ 
+      'is-danger': msg.style == 'error',
+      'is-success': msg.style == 'success',
+      'is-info': msg.style == 'info'
+    }">
+    <button class="delete" (click)="notify.clear()"></button>
+    {{ msg.content }}
+  </div>
+</div>
+
 <router-outlet></router-outlet>

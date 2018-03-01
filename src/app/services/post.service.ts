@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
-
+import { NotifyService } from "./notify.service";
 
 @Injectable()
 export class PostService {
@@ -13,8 +13,9 @@ export class PostService {
   post      :    Observable<$Post>
 
   constructor(
-    private afs: FirestoreService,
-    private router: Router,
+    private afs     : FirestoreService,
+    private router  : Router,
+    private notify  : NotifyService
   ) { }
 
 
@@ -88,7 +89,7 @@ export class PostService {
     };
 
     console.log(data)
-    alert('Posted !')
+    this.notify.update('Posted', 'success')
     this.router.navigate(['/admin/posts'])
     return this.afs.add(this.basePath,data)
 
@@ -105,7 +106,7 @@ export class PostService {
           url       :   Post.url,
         };
         
-          alert('updated !')
+          this.notify.update('Updated', 'success')
           this.router.navigate(['/admin/post'])
           return this.afs.update(`${this.basePath}/${id}`,data)
     }
@@ -113,7 +114,7 @@ export class PostService {
 
       // Writes the file details to the realtime db
       private deleteFileData(id) {
-        alert('deleted !')
+        this.notify.update('Deleted', 'danger')
         this.router.navigate(['/admin/posts'])
         return this.afs.delete(`${this.basePath}/${id}`)
       }
@@ -128,7 +129,7 @@ export class PostService {
         // If error, console log and notify user
         private handleError(error: Error) {
           console.error(error);
-          alert(error.message)
+          this.notify.update(error.message, 'success')
         }
 
 }

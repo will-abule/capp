@@ -1,3 +1,4 @@
+import { NotifyService } from './services/notify.service';
 import { UserGuard } from './gaurd/user.guard';
 import { ContactService } from './services/contact.service';
 import { AuthService } from './services/auth.service';
@@ -126,7 +127,8 @@ const routes: Routes = [
     AboutService,
     AuthService,
     ContactService,
-    UserGuard
+    UserGuard,
+    NotifyService
   ],
   bootstrap: [AppComponent]
 })

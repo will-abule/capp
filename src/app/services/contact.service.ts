@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
-
+import { NotifyService } from "./notify.service";
 
 @Injectable()
 export class ContactService {
@@ -13,8 +13,9 @@ export class ContactService {
   post      :    Observable<$Contact>
 
   constructor(
-    private afs: FirestoreService,
-    private router: Router,
+    private afs     : FirestoreService,
+    private router  : Router,
+    private notify  : NotifyService
   ) { }
 
 
@@ -66,7 +67,7 @@ export class ContactService {
     };
 
     console.log(data)
-    alert('Message Sent !')
+    this.notify.update('Message Sent', 'success')
     this.router.navigate(['/'])
     return this.afs.add(this.basePath,data)
 
@@ -74,7 +75,7 @@ export class ContactService {
   
       // Writes the file details to the realtime db
       private deleteFileData(id) {
-        alert('deleted !')
+        this.notify.update('Deleted', 'danger')
         this.router.navigate(['/admin/products'])
         return this.afs.delete(`${this.basePath}/${id}`)
       }
@@ -89,7 +90,7 @@ export class ContactService {
         // If error, console log and notify user
         private handleError(error: Error) {
           console.error(error);
-          alert(error.message)
+          this.notify.update(error.message, 'success')
         }
 
 }

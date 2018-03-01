@@ -2,6 +2,7 @@ import { Observable } from 'rxjs/Observable';
 import { FirestoreService } from './firestore.service';
 import { About } from './../models/about';
 import { Injectable } from '@angular/core';
+import { NotifyService } from "./notify.service";
 
 @Injectable()
 export class AboutService {
@@ -9,7 +10,7 @@ export class AboutService {
   basePath  :   'about'
   about     :   Observable<About>;
 
-  constructor(private afs: FirestoreService) { }
+  constructor(private afs: FirestoreService, private notify  : NotifyService) { }
 
   getAbout()    : Observable<About>{
     this.about  = this.afs.doc$('about/about')
@@ -23,6 +24,6 @@ export class AboutService {
 
   private updateAboutData(About : About){
     this.afs.update('about/about',About)
-    alert('Updated !')
+    this.notify.update('Updated', 'success')
   }
 }

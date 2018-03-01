@@ -6,6 +6,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import { switchMap } from 'rxjs/operators';
 import { FirestoreService } from './firestore.service';
+import { NotifyService } from "./notify.service";
 
 @Injectable()
 
@@ -15,9 +16,10 @@ export class AuthService {
   data  : User
 
   constructor(
-              private afAuth: AngularFireAuth,
-              private afs: FirestoreService,
-              private router: Router,
+              private afAuth  : AngularFireAuth,
+              private afs     : FirestoreService,
+              private router  : Router,
+              private notify  : NotifyService
             ) {
 
     this.user = this.afAuth.authState
@@ -55,7 +57,7 @@ export class AuthService {
   private oAuthLogin(provider: firebase.auth.AuthProvider) {
     return this.afAuth.auth.signInWithPopup(provider)
       .then((credential) => {
-        alert('Welcome !')
+        this.notify.update('Welcome', 'success')
         return this.updateUserData(credential.user);
       })
       .catch((error) => this.handleError(error) );
@@ -79,7 +81,7 @@ export class AuthService {
   emailLogin(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
-        alert('Welcome...!!!')
+        this.notify.update('Welcome', 'success')
         this.router.navigate(['/admin/dashboard']);
         // return this.updateUserData(user); // if using firestore
       })
@@ -91,7 +93,7 @@ export class AuthService {
     const fbAuth = firebase.auth();
 
     return fbAuth.sendPasswordResetEmail(email)
-      .then(() => alert('Password update email sent'))
+      .then(() => this.notify.update('Password update email sent', 'success'))
       .catch((error) => this.handleError(error));
   }
 
@@ -99,14 +101,14 @@ export class AuthService {
   signOut() {
     this.afAuth.auth.signOut().then(() => {
       this.router.navigate(['/']);
-      alert('Sign Out !')
+      this.notify.update('Sign Out !', 'success')
     });
   }
 
   // If error, console log and notify user
   private handleError(error: Error) {
     console.error(error);
-    alert(error.message);
+    this.notify.update(error.message, 'success')
   }
 
   // Sets user data to firestore after succesful login
